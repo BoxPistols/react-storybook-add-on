@@ -15,7 +15,8 @@
     "bs": "build-storybook -s public",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sb": "start-storybook -s ./public -p 9001"
+    "sb": "start-storybook -s ./public -p 9001",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "eslintConfig": {
     "extends": "react-app"
