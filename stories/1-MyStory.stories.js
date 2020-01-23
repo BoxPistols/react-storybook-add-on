@@ -1,7 +1,7 @@
 import React from "react";
 import {action} from "@storybook/addon-actions";
 import {Button} from "@storybook/react/demo";
-import markdown from "./some.md";
+// import markdown from "./some.md";
 import anyNote from "./any.md";
 import {
   withKnobs,
@@ -11,6 +11,7 @@ import {
   select,
   button
 } from "@storybook/addon-knobs";
+
 
 const label = "Do Something";
 const handler = () => action("clicked");
