@@ -1,4 +1,4 @@
-# Somr
+# Some Note
 
 ## Text
 

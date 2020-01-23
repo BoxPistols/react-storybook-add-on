@@ -1,6 +1,8 @@
 import React from "react";
 import {action} from "@storybook/addon-actions";
 import {Button} from "@storybook/react/demo";
+import markdown from "./some.md";
+import anyNote from "./any.md";
 import {
   withKnobs,
   text,
@@ -15,32 +17,30 @@ const handler = () => action("clicked");
 const groupId = "GROUP-ID1";
 button(label, handler, groupId);
 
-export const Text = () => (
-  <Button onClick={action("clicked")}>Hello Button</Button>
-);
+export const Text = () => (<Button onClick={action("clicked")}>Hello Button</Button>);
 
-export const Emoji = () => (
-  <Button onClick={action("clicked")}>
-    <span role="img" aria-label="so cool">
-      😀 😎 👍 💯
-    </span>
-  </Button>
-);
+export const Emoji = () => (<Button onClick={action("clicked")}>
+  <span role="img" aria-label="so cool">
+    😀 😎 👍 💯
+  </span>
+</Button>);
 
 // knob
 export default {
   title: "MyStory",
   decorators: [withKnobs],
   parameters: {
-    notes: "My notes"
+    // notes: markdown
+    notes: {
+      // markdown: markdown,
+      anyNote: anyNote
+    }
   }
 };
 // Knobs for React props
-export const withAButton = () => (
-  <Button disabled={boolean("Disabled", false)}>
-    {text("Label", "Hello Storybook")}
-  </Button>
-);
+export const withAButton = () => (<Button disabled={boolean("Disabled", false)}>
+  {text("Label", "Hello Storybook")}
+</Button>);
 
 // Knobs as dynamic variables.
 export const dynamicVariables = () => {
@@ -81,7 +81,9 @@ export const inSelector = () => {
     Red: "red",
     Blue: "blue",
     Yellow: "yellow",
-    Rainbow: ["red", "orange", "etc"],
+    Rainbow: [
+      "red", "orange", "etc"
+    ],
     None: null
   };
   const defaultValue = "red";
