@@ -22,7 +22,7 @@ export const Text = () => <Button onClick={action('clicked')}>Hello Button</Butt
 
 // knob
 export default {
-  title: "Has  Knobs",
+  title: "MyStory",
   decorators: [withKnobs],
 };
 // Add the `withKnobs` decorator to add knobs support to your stories.
@@ -36,10 +36,26 @@ export const withAButton = () => (
 );
 
 // Knobs as dynamic variables.
-export const asDynamicVariables = () => {
+export const dynamicVariables = () => {
   const name = text("Name", "James");
   const age = number("Age", 35);
   const content = `I am ${name} and I'm ${age} years old.`;
+
+  return <div>{content}</div>;
+};
+
+
+export const inGroups = () => {
+  const personalGroupId = 'personal info';
+  const generalGroupId = 'general info';
+
+  const name = text("Name", "Mike", personalGroupId);
+  const age = number("Age", 27, personalGroupId);
+  const message = text("Hello!", 45, generalGroupId);
+  const content = `
+    I am ${name} and I'm ${age} years old.
+    ${message}
+  `;
 
   return <div>{content}</div>;
 };
