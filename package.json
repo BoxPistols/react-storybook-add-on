@@ -15,8 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "sb": "start-storybook -s ./public -p 9001"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,9 +35,12 @@
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@storybook/addon-actions": "^5.3.8",
+    "@storybook/addon-knobs": "^5.3.8",
     "@storybook/addon-links": "^5.3.8",
     "@storybook/addons": "^5.3.8",
     "@storybook/react": "^5.3.8",
+    "@types/node": "^13.1.8",
+    "@types/react": "^16.9.19",
     "babel-loader": "^8.0.6"
   }
 }
