@@ -17,7 +17,8 @@ const groupId = 'GROUP-ID1';
 button(label, handler, groupId);
 
 
-export const Text = () => <Button onClick={action('clicked')}>Hello Button</Button>;
+export const Text = () => <Button
+ onClick={action('clicked')}>Hello Button</Button>;
 
 export const Emoji = () => (
   <Button onClick={action('clicked')}>
