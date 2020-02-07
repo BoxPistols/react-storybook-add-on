@@ -2,6 +2,7 @@ import React from "react";
 import {action} from "@storybook/addon-actions";
 import {Button} from "@storybook/react/demo";
 // import markdown from "./some.md";
+import styled from 'styled-components';
 import anyNote from "./any.md";
 import {
   withKnobs,
@@ -11,7 +12,6 @@ import {
   select,
   button
 } from "@storybook/addon-knobs";
-
 
 const label = "Do Something";
 const handler = () => action("clicked");
@@ -76,20 +76,34 @@ export const inGroups = () => {
   return <div>{content}</div>;
 };
 
+const ButtonStyle = styled.button `
+  // color: palevioletred;
+  // color: ${props => props.children === 'blue' ? 'blue' : 'palevioletred'};
+  color: ${props => props.children};
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  // border: 2px solid ${props => props.children === 'red' ? 'red' :  props.children};
+  border: 2px solid ${props => props.children};
+  border-radius: 3px;
+`;
+
 export const inSelector = () => {
   const label = "Colors";
   const options = {
-    Red: "red",
-    Blue: "blue",
-    Yellow: "yellow",
-    Rainbow: [
+    red: "red",
+    blue: "blue",
+    yellow: "yellow",
+    rainbow: [
       "red", "orange", "etc"
     ],
     None: null
   };
-  const defaultValue = "red";
+  const defaultValue = "blue";
   const groupId = "GROUP-ID1";
   const value = select(label, options, defaultValue, groupId);
   const content = `${value}`;
-  return <div>{content}</div>;
+  return <div>
+    <ButtonStyle>{content}</ButtonStyle>
+  </div>;
 };
